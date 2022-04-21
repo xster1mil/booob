@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% block title %}Job Search App{% endblock %}
+{% block page %}Job Search{% endblock %}
+
+{{ super() }}
+
+{% block content %}
+
+<style> 
+    .header {
+    background-color: rgba(240, 240, 240, 0);
+      padding: 20px;
+      text-align: center;
+      color: rgb(0, 0, 0);
+      font-size: 0px;
+      opacity:1;
+    }</style>
+
+        <div class="header">
+      <h1 style="text-align:center">Find the job that's best suited for you!</h1><br /><br />
+      </p>
+  </div>
+
+    <main style = "padding: 1em" class = "row">
+        <section class = "col s8">
+            <form class="row">
+                <div>
+                <!-- -->
+                    <div class="input-field col s9" style="margin-left: 300px;">
+                        <i class="material-icons prefix">search</i>
+                        <textarea id="icon_prefix2" name = "search" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix2">Job Search</label>
+                    </div>
+
+                    <div  class = "input-field s3" style="margin-left: 550px;">
+                        <button class="light-blue accent-3 btn waves-effect waves-grey" type="submit">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                
+                </div>
+            </form>
+        <section class = "col s4">
+    </main>
+
+    {%for j in job%}
+            <div class="row" style="margin-left: 350px;" >
+                <div class="col s12 m7">
+                  <div class="card grey darken-4" style="padding-left: 40px;">
+                    <div class="card-content grey lighten-2">
+
+                        <span class="card-title">{{j.Name}}</span>
+                        
+                        <div>
+                            <p><b>Job ID:</b> {{j.Job_ID}}</p>
+                            <p><b>Company:</b> {{j.Company}}</p>
+                            <p><b>Contact Info:</b> {{j.Contact_Info}}</p>
+                            <p><b>Degree or Experience:</b> {{j.Degree_Experience}}</p>
+                            <p><b>Requirements: </b> {{j.Requirements}}</p>
+                        </div>
+
+                        <div style="padding-left: 350px;">
+                           <button class="btn waves-effect waves-light" type="submit">Apply
+                                <i class="material-icons right">send</i>
+                            </button> 
+                        </div>
+                        
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+                
+            {% endfor%}
+
+    
+
+{% endblock %}
+
+<!--  
+<div class="col s12 m12">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-title" style="background-color: darkgray;" >
+                <b>{{job.Name}}</b>
+            </div>
+            <div>
+                <p><b>Job ID:</b> {{job.Job_ID}}</p>
+                <p><b>Company:</b> {{job.Company}}</p>
+                <p><b>Contact Info:</b> {{job.Contact_Info}}</p>
+                <p><b>Degree or Experience:</b> {{job.Degree_Experience}}</p>
+                <p><b>Requirements: </b> {{job.Requirements}}</p>
+            </div>
+            <div class = "input-field s3">
+                <button class="btn waves-effect waves-light" type="submit">Apply
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
